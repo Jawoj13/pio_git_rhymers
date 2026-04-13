@@ -1,5 +1,9 @@
 package edu.kis.vh.nursery;
 
+/**
+ * Base Class for Rhymers
+ *implementing stack structure
+ */
 public class DefaultCountingOutRhymer {
 
     private static final int max_size = 12;
@@ -8,31 +12,58 @@ public class DefaultCountingOutRhymer {
 
     private int total = default_value;
 
+    /**
+     * Returns total number of stack elements, -1 if empty
+     */
     public int getTotal() {
         return total;
     }
 
+    /**
+     * Adds element to top of stack
+     * @param in
+     * element to be added to stack
+     */
     protected void countIn(int in) {
         if (!isFull())
             numbers[++total] = in;
     }
-    
 
-        protected boolean callCheck() {
+    /**
+     *
+     * @return
+     * True if empty, False otherwise
+     */
+    protected boolean callCheck() {
             return total == default_value;
         }
-        
-            protected boolean isFull() {
+
+    /**
+     *
+     * @return
+     * True if full, False otherwise
+     */
+    protected boolean isFull() {
                 return total == 11;
             }
-        
-                protected int peekaboo() {
+
+    /**
+     * Like a pop without removing element from stack
+     * @return
+     * Top stack element or -1 if empty
+     */
+    protected int peekaboo() {
                     if (callCheck())
                         return default_value;
                     return numbers[total];
                 }
-            
-                    protected int countOut() {
+
+    /**
+     * Pop method
+     * @return
+     * Top element from stack
+     */
+    protected int countOut() {
                         if (callCheck())
                             return default_value;
                         return numbers[total--];
